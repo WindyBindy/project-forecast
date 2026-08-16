@@ -1,0 +1,32 @@
+.gallery { padding: 54px 0 48px; background: #fff; color: #151515; font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.gallery__heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 30px; }
+.gallery h2 { margin: 0; font-size: 20px; font-weight: 500; }
+.gallery__search { display: flex; height: 38px; }
+.gallery__search input { width: 180px; min-width: 0; padding: 0 12px; border: 1px solid #d4d4d4; border-radius: 7px 0 0 7px; color: #171717; font: inherit; font-size: 13px; outline: none; }
+.gallery__search input:focus { border-color: #ffae68; }
+.gallery__search button { border: 0; border-radius: 0 7px 7px 0; background: #ffae68; color: #171717; font: inherit; font-size: 13px; cursor: pointer; }
+.gallery__search button:disabled { cursor: wait; opacity: .7; }
+.gallery__images { position: relative; display: flex; align-items: center; justify-content: center; min-height: 164px; }
+.gallery__image { position: relative; display: block; width: 20%; max-width: 270px; aspect-ratio: 1.58; overflow: hidden; box-shadow: 0 2px 7px rgb(0 0 0 / 12%); transition: transform .2s, z-index 0s .2s; }
+.gallery__image img { width: 100%; height: 100%; object-fit: cover; }
+.gallery__image--1 { z-index: 1; transform: translateX(36%); opacity: .72; }
+.gallery__image--2 { z-index: 2; transform: translateX(18%); opacity: .86; }
+.gallery__image--3 { z-index: 4; width: 28%; max-width: 330px; aspect-ratio: 1.52; }
+.gallery__image--4 { z-index: 2; transform: translateX(-18%); opacity: .86; }
+.gallery__image--5 { z-index: 1; transform: translateX(-36%); opacity: .72; }
+.gallery__image:nth-child(n + 6) { display: none; }
+.gallery__image:hover { z-index: 6; opacity: 1; transform: scale(1.06); transition-delay: 0s; }
+.gallery__message { margin: 0; color: #686868; }
+.gallery__message--error { color: #b74735; }
+
+@media (max-width: 767px) {
+  .gallery { padding: 42px 0; }
+  .gallery__heading { align-items: flex-start; flex-direction: column; margin-bottom: 24px; }
+  .gallery__search { width: 100%; }
+  .gallery__search input { width: 100%; }
+  .gallery__search button { width: 76px; }
+  .gallery__images { min-height: 130px; }
+  .gallery__image { width: 32%; }
+  .gallery__image--3 { width: 44%; }
+  .gallery__image--4, .gallery__image--5 { display: none; }
+}
