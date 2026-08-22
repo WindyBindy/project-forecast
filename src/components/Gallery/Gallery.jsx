@@ -1,4 +1,8 @@
 import { useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { A11y, EffectCoverflow, Keyboard } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
 import { getImages } from '../../services/pixabayService'
 import './Gallery.css'
 
@@ -50,13 +54,26 @@ function Gallery() {
         {error && <p className="gallery__message gallery__message--error">{error}</p>}
         {!loading && !error && images.length === 0 && <p className="gallery__message">No images found.</p>}
         {!loading && !error && images.length > 0 && (
-          <div className="gallery__images">
-            {images.map((image, index) => (
-              <a className={`gallery__image gallery__image--${index + 1}`} href={image.pageURL} target="_blank" rel="noreferrer" key={image.id}>
-                <img src={image.webformatURL} alt={image.tags} />
-              </a>
+          <Swiper
+            className="gallery__swiper"
+            modules={[A11y, EffectCoverflow, Keyboard]}
+            effect="coverflow"
+            centeredSlides
+            slidesPerView="auto"
+            grabCursor
+            keyboard={{ enabled: true }}
+            loop={images.length > 3}
+            coverflowEffect={{ rotate: 0, stretch: 0, depth: 160, modifier: 1.2, slideShadows: false }}
+            a11y={{ prevSlideMessage: 'Previous image', nextSlideMessage: 'Next image' }}
+          >
+            {images.map((image) => (
+              <SwiperSlide className="gallery__slide" key={image.id}>
+                <a className="gallery__image" href={image.pageURL} target="_blank" rel="noreferrer">
+                  <img src={image.webformatURL} alt={image.tags} />
+                </a>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         )}
       </div>
     </section>

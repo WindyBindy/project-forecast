@@ -50,6 +50,16 @@
   gap: 16px;
 }
 
+.header__username {
+  max-width: 150px;
+  overflow: hidden;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .header__signup {
   padding: 10px 24px;
   background-color: #e67e22;
@@ -89,6 +99,7 @@
   .header__logo { margin-right: 32px; }
   .header__nav { gap: 20px; }
   .header__actions { gap: 10px; }
+  .header__username { max-width: 100px; }
   .header__signup { padding: 9px 16px; }
 }
 
@@ -104,6 +115,7 @@
   .header__nav-link { font-size: 17px; }
   .header__actions { position: absolute; z-index: 3; top: 160px; right: 20px; display: none; flex-direction: column-reverse; gap: 22px; }
   .header__nav--open + .header__actions { display: flex; }
+  .header__username { max-width: 112px; font-size: 15px; }
   .header__signup { padding: 11px 24px; background: #ffae68; color: #171717; }
   .header__avatar { width: 56px; height: 56px; }
 }
